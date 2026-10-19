@@ -96,7 +96,7 @@ function shuffle(items){
  return items;
 }
 function makePuzzle(){
- const level=$('level').value, target=level==='facil'?7:level==='medio'?10:13;
+ const level=$('level').value, target=level==='facil'?7:level==='medio'?8:10;
  let bestPuzzle=null;
  for(let attempt=0;attempt<35;attempt++){
   const grid=Array.from({length:N},()=>Array(N).fill(null)), placed=[];
