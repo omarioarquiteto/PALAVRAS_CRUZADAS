@@ -16,9 +16,10 @@ Jogo de palavras cruzadas em português, inspirado no visual clássico dos passa
 - Layout adaptado para orientação retrato e paisagem.
 - Diagramas gerados aleatoriamente a cada nova partida.
 - Três níveis de dificuldade, com quantidade e comprimento de palavras diferentes.
-- Destaque visual da palavra selecionada.
-- Verificação das respostas e revelação da palavra selecionada.
-- Banco local de mais de **3.000 formas de palavras** geradas a partir de vocabulário em português, incluindo palavras-base e flexões comuns.
+- Destaque visual da palavra selecionada e foco automático na primeira célula ao escolher uma pista.
+- Navegação por setas do teclado e alternância entre horizontal/vertical com Enter nos cruzamentos.
+- Conferência com destaque visual de letras corretas e incorretas; revelação da palavra selecionada e limpeza da partida.
+- Banco local com mais de **1.700 entradas** de vocabulário e plurais comuns gerados automaticamente, com respostas normalizadas sem acentos.
 - Não exige instalação, conta, servidor ou bibliotecas externas.
 
 ## Executar
@@ -27,4 +28,4 @@ Jogo de palavras cruzadas em português, inspirado no visual clássico dos passa
 
 ## Observação sobre as pistas
 
-As palavras principais possuem pistas descritivas. Para parte do vocabulário expandido, a pista é genérica; ampliar e revisar editorialmente as pistas é uma melhoria recomendada para uma versão futura.
+As palavras principais possuem pistas descritivas, e os plurais gerados recebem pistas do tipo “Plural de …”. Parte do vocabulário adicional ainda usa uma pista genérica; revisar e enriquecer essas pistas editorialmente continua sendo uma melhoria importante.
