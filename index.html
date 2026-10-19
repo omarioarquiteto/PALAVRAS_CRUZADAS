@@ -79,9 +79,13 @@ select{background:#fffdf8;min-width:108px}
 .clues h3{display:flex;align-items:baseline;gap:8px;margin:0 0 8px;padding:0 0 8px;border-bottom:1px solid var(--ink);font-size:18px;line-height:1.15;font-weight:700}
 .clues h3 span{font:700 10px Arial,sans-serif;color:var(--accent);letter-spacing:.6px}
 .clue-list{list-style:none;padding:0;margin:0;counter-reset:none}
-.clue-list li{font:13px/1.38 Georgia,"Times New Roman",serif;padding:7px 5px;border-bottom:1px dotted #d1cabb;cursor:pointer;overflow-wrap:anywhere}
+.clue-list li{display:flex;flex-direction:column;align-items:stretch;gap:5px;min-height:66px;margin:0 0 7px;padding:7px 7px 3px;border:1px solid #c8bfaf;background:#fffdf8;font:13px/1.38 Georgia,"Times New Roman",serif;cursor:pointer;overflow-wrap:anywhere;transition:background .12s,border-color .12s}
+.clue-copy{display:block;min-width:0}
 .clue-list li b{font:700 11px Arial,sans-serif;color:var(--accent);margin-right:4px}
-.clue-list li.active{background:var(--accent-light);box-shadow:inset 3px 0 var(--accent);padding-left:9px}
+.clue-arrow{display:flex;align-items:center;justify-content:center;flex:0 0 auto;min-height:17px;margin-top:auto;padding-top:3px;border-top:1px solid #e0d8c9;color:var(--accent);font:700 18px/1 Arial,sans-serif}
+.clue-list li:hover{border-color:#9c716b;background:#fffaf1}
+.clue-list li.active{background:var(--accent-light);border-color:var(--accent);box-shadow:inset 3px 0 var(--accent);padding-left:9px}
+.clue-list li.active .clue-arrow{border-top-color:#d5aaa3}
 .clue-list li:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 #message{font:700 12px/1.4 Arial,sans-serif;min-height:18px;margin:12px 0 0;color:var(--accent)}
 .page-bottom{border-top:3px double var(--ink);padding-top:9px;margin-top:18px;font-size:9px;letter-spacing:1px;color:#625d54}
@@ -355,7 +359,7 @@ input.addEventListener('keydown',e=>{
  }
 });el.append(input)}b.append(el)}
  renderClues();updateProgress();$('counter').textContent=puzzle.placed.length+' palavras • '+bank.length.toLocaleString('pt-BR')+' palavras disponíveis';}
-function renderClues(){for(const d of ['across','down']){const list=$(d);list.innerHTML='';puzzle.placed.filter(p=>p.dir===d).sort((a,b)=>a.num-b.num).forEach(p=>{const li=document.createElement('li');li.innerHTML='<b>'+p.num+'.</b> '+escapeHtml(p.clue);li.dataset.word=p.word;li.addEventListener('click',()=>{direction=d;selected=p;focusCell(p.r,p.c);const firstInput=document.querySelector('input[data-r="'+p.r+'"][data-c="'+p.c+'"]');if(firstInput)firstInput.focus();});list.append(li)})}}
+function renderClues(){for(const d of ['across','down']){const list=$(d);list.innerHTML='';puzzle.placed.filter(p=>p.dir===d).sort((a,b)=>a.num-b.num).forEach(p=>{const li=document.createElement('li');const clue=document.createElement('div');clue.className='clue-copy';clue.innerHTML='<b>'+p.num+'.</b> '+escapeHtml(p.clue);const arrow=document.createElement('span');arrow.className='clue-arrow';arrow.textContent=d==='across'?'→':'↓';arrow.setAttribute('aria-hidden','true');li.setAttribute('aria-label','Dica '+p.num+': '+p.clue+'. Direção '+(d==='across'?'horizontal, para a direita':'vertical, para baixo'));li.append(clue,arrow);li.dataset.word=p.word;li.tabIndex=0;li.addEventListener('click',()=>{direction=d;selected=p;focusCell(p.r,p.c);const firstInput=document.querySelector('input[data-r="'+p.r+'"][data-c="'+p.c+'"]');if(firstInput)firstInput.focus();});li.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();li.click();}});list.append(li)})}}
 function escapeHtml(s){return s.replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]))}
 function currentWord(){if(!selected)return null;return selected}
 function focusCell(r,c){
