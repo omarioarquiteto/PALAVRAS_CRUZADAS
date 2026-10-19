@@ -1,6 +1,6 @@
 # Palavras Cruzadas
 
-Jogo de palavras cruzadas em português, inspirado no visual clássico dos passatempos impressos.
+Jogo de palavras cruzadas em português com visual inspirado em páginas impressas de revistas e livros de passatempos.
 
 ## Como jogar
 
@@ -11,9 +11,10 @@ Jogo de palavras cruzadas em português, inspirado no visual clássico dos passa
 
 ## Recursos
 
-- Interface responsiva para computador e celular, com grade dimensionada para toque em telas pequenas.
-- Botão **Tela cheia** para aproveitar melhor a tela; em navegadores compatíveis usa o modo de tela cheia do sistema, com alternativa visual quando essa API não está disponível.
-- Layout adaptado para orientação retrato e paisagem.
+- Visual editorial inspirado em livro de passatempos: papel marfim, títulos serifados, filetes de impressão, diagrama preto e branco e pistas organizadas em colunas.
+- Interface responsiva para computador e celular, com quadrinhos dimensionados para toque.
+- Botão **Tela cheia** com modo imersivo: usa a tela cheia do navegador quando suportada e um layout visual sem cabeçalho/rodapé como alternativa.
+- Layout adaptado para orientação retrato e paisagem; no celular, os controles ficam compactos e as pistas são organizadas lado a lado.
 - Diagramas gerados aleatoriamente a cada nova partida.
 - Três níveis de dificuldade, com quantidade e comprimento de palavras diferentes.
 - Destaque visual da palavra selecionada e foco automático na primeira célula ao escolher uma pista.
